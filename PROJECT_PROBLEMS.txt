@@ -1,0 +1,32 @@
+Project Problems
+
+1. apps/api/tsconfig.json
+   Line 5: moduleResolution
+
+   Code:
+   "moduleResolution": "node",
+
+   Problem:
+   Option 'moduleResolution=node10' is deprecated and will stop functioning in TypeScript 7.0.
+   Specify compilerOption '"ignoreDeprecations": "6.0"' to silence this error.
+   Visit https://aka.ms/ts6 for migration information.
+
+2. apps/api/prisma/seed.ts
+   Line 10
+
+   Code:
+   if (existing && process.env.SEED_WIPE !== '1') {
+
+   Problem:
+   Cannot find name 'process'. Do you need to install type definitions for node?
+   Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
+
+3. apps/api/prisma/seed.ts
+   Line 151
+
+   Code:
+   main().catch((e) => { console.error(e); process.exit(1); }).finally(() => prisma.$disconnect());
+
+   Problem:
+   Cannot find name 'process'. Do you need to install type definitions for node?
+   Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
